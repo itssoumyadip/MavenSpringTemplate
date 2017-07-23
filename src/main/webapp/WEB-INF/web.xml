@@ -4,7 +4,7 @@
 	version="2.5">
 
 	
-		<display-name>Archetype Created Web Application</display-name>
+		<display-name>Maven Spring Web Application</display-name>
 
 		<servlet>
 			<servlet-name>mvc-dispatcher</servlet-name>
