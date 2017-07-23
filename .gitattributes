@@ -1,0 +1,14 @@
+# .gitattributes
+# Map file extensions to git filters
+
+*.jspx ident
+*.java ident
+*.js ident
+*.xml ident
+*.rpt ident
+*.properties ident
+*.css ident
+*.aj ident
+*.sh ident
+*.bat ident
+
