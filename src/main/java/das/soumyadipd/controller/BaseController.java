@@ -1,39 +1,40 @@
 package das.soumyadipd.controller;
 
-import org.slf4j.LoggerFactory;
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import das.soumyadipd.beans.User;
 
 @Controller
 public class BaseController {
 
-	private static int counter = 0;
-	private static final String VIEW_INDEX = "index";
-	private final static org.slf4j.Logger logger = LoggerFactory.getLogger(BaseController.class);
-
+	/**
+	 * Simply selects the home view to render by returning its name.
+	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String welcome(ModelMap model) {
+	public String home(Locale locale, Model model) {
+		System.out.println("Home Page Requested, locale = " + locale);
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 
-		model.addAttribute("message", "Welcome");
-		model.addAttribute("counter", ++counter);
-		logger.debug("[welcome] counter : {}", counter);
+		String formattedDate = dateFormat.format(date);
 
-		// Spring uses InternalResourceViewResolver and return back index.jsp
-		return VIEW_INDEX;
+		model.addAttribute("serverTime", formattedDate);
 
+		return "index";
 	}
 
-	@RequestMapping(value = "/{name}", method = RequestMethod.GET)
-	public String welcomeName(@PathVariable String name, ModelMap model) {
-
-		model.addAttribute("message", "Welcome " + name);
-		model.addAttribute("counter", ++counter);
-		logger.debug("[welcomeName] counter : {}", counter);
-		return VIEW_INDEX;
-
+	@RequestMapping(value = "/user", method = RequestMethod.POST)
+	public String user(@Validated User user, Model model) {
+		System.out.println("User Page Requested");
+		model.addAttribute("userName", user.getUserName());
+		return "user";
 	}
-
 }
