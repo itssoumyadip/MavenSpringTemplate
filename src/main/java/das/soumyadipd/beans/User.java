@@ -1,6 +1,7 @@
 package das.soumyadipd.beans;
 
 public class User {
+	
 	private String userName;
 
 	public String getUserName() {
@@ -10,4 +11,5 @@ public class User {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+	
 }
