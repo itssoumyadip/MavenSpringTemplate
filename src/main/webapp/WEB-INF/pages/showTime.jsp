@@ -7,12 +7,13 @@
 		<title>Hello Maven Spring Template!</title>
 	</head>
 	<body>
-		<h1>Dear Guest, Please choose action</h1>
+		<h1>Show Time</h1>
+		<P>The time on the server is ${serverTime}.</p>
+		<form action="showTime" method="get">
+			<input type="submit" value="Refresh Time">
+		</form>
 		<form action="login" method="get">
 			<input type="submit" value="Log In">
-		</form>
-		<form action="showTime" method="get">
-			<input type="submit" value="Show Time">
 		</form>
 	</body>
 </html>

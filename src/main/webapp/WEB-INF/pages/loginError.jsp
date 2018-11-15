@@ -4,10 +4,11 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>User Home Page, Login Successful</title>
+		<title>Login Failed</title>
 	</head>
 	<body>
-		<h3>Hii!! ${userName}</h3>
+		<h3>Hii!! Login Failed :(</h3>
+		<P>Error Message :- ${errorMessage}</p><br><br>
 		<form action="home" method="get">
 			<input type="submit" value="Back to Home">
 		</form>
