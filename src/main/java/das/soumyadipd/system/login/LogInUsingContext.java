@@ -5,9 +5,8 @@ import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import das.soumyadipd.beans.User;
-import das.soumyadipd.system.login.helper.ContextBasedLogInHelper;
 import das.soumyadipd.system.login.interfaces.ApplicationLogIn;
+import das.soumyadipd.system.login.interfaces.LoginHelper;
 
 public class LogInUsingContext implements ApplicationLogIn {
 
@@ -17,11 +16,8 @@ public class LogInUsingContext implements ApplicationLogIn {
 
 	private static LogInUsingContext instance = null;
 
-	private ContextBasedLogInHelper helper = new ContextBasedLogInHelper();
-
 	private LogInUsingContext() {
 		loadLoginContext();
-		loadUsers();
 	}
 
 	public static LogInUsingContext getInstance() {
@@ -38,26 +34,12 @@ public class LogInUsingContext implements ApplicationLogIn {
 		}
 	}
 
-	private void loadUsers() {
-		int count = 1;
-		while (count > 0) {
-			String beanId = "user" + count;
-			try {
-				helper.addUser((User) loginContext.getBean(beanId));
-				count++;
-			} catch (Exception e) {
-				break;
-			}
-		}
-		LOG.debug("User Data loaded successfully");
-	}
-
 	@Override
 	public boolean isValidCredentials(String userId, String password) {
 		if (userId == null || password == null) {
 			return false;
 		}
-		if (StringUtils.equals(password, helper.getPassword(userId))) {
+		if (StringUtils.equals(password, loginContext.getBean("contextBasedLogInHelper", LoginHelper.class).getPassword(userId))) {
 			return true;
 		}
 		return false;

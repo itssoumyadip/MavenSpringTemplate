@@ -9,7 +9,7 @@
 	<body>
 		<h3>Hii!! Login Failed :(</h3>
 		<P>Error Message :- ${errorMessage}</p><br><br>
-		<form action="home" method="get">
+		<form action="${pageContext.request.contextPath}/web/home" method="get">
 			<input type="submit" value="Back to Home">
 		</form>
 	</body>

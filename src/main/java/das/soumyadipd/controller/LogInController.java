@@ -12,6 +12,7 @@ import das.soumyadipd.system.login.LogInUsingContext;
 import das.soumyadipd.system.login.interfaces.ApplicationLogIn;
 
 @Controller
+@RequestMapping(value = "/web/auth")
 public class LogInController {
 
 	private static final Logger LOG = Logger.getLogger(LogInController.class);

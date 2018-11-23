@@ -8,7 +8,7 @@
 	</head>
 	<body>
 		<h3>Hii!! ${userName}</h3>
-		<form action="home" method="get">
+		<form action="${pageContext.request.contextPath}/web/home" method="get">
 			<input type="submit" value="Back to Home">
 		</form>
 	</body>

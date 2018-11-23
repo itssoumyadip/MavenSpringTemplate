@@ -7,7 +7,7 @@
 		<title>Hello Maven Spring Template!</title>
 	</head>
 	<body>
-		<form action="doLogin" method="post">
+		<form action="${pageContext.request.contextPath}/web/auth/doLogin" method="post">
 			<input type="text" name="userName"><br>
 			<br>
 			<input type="password" name="password"><br>

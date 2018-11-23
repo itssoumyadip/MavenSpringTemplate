@@ -9,10 +9,10 @@
 	<body>
 		<h1>Show Time</h1>
 		<P>The time on the server is ${serverTime}.</p>
-		<form action="showTime" method="get">
+		<form action="${pageContext.request.contextPath}/web/time/showTime" method="get">
 			<input type="submit" value="Refresh Time">
 		</form>
-		<form action="login" method="get">
+		<form action="${pageContext.request.contextPath}/web/auth/login" method="get">
 			<input type="submit" value="Log In">
 		</form>
 	</body>

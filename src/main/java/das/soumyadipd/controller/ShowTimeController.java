@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
+@RequestMapping(value = "/web/time")
 public class ShowTimeController {
 
 	private static final Logger LOG = Logger.getLogger(ShowTimeController.class);

@@ -4,6 +4,8 @@ public class User {
 
 	private String userName;
 	private String password;
+	
+	private String message;
 
 	public String getUserName() {
 		return userName;
@@ -19,6 +21,14 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 }

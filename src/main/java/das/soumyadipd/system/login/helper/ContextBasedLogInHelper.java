@@ -1,26 +1,18 @@
 package das.soumyadipd.system.login.helper;
 
-import java.util.HashMap;
 import java.util.Map;
 
-import das.soumyadipd.beans.User;
+import das.soumyadipd.system.login.interfaces.LoginHelper;
 
-public class ContextBasedLogInHelper {
+public class ContextBasedLogInHelper implements LoginHelper{
 
-	private Map<String, String> userMap = null;
+	private Map<String, String> userMap;
 
-	public ContextBasedLogInHelper() {
-		userMap = new HashMap<String, String>();
+	public void setUserMap(Map<String, String> userMap) {
+		this.userMap = userMap;
 	}
 
-	public Map<String, String> getUserMap() {
-		return userMap;
-	}
-
-	public void addUser(User user) {
-		userMap.put(user.getUserName(), user.getPassword());
-	}
-
+	@Override
 	public String getPassword(String userId) {
 		return userMap.get(userId);
 	}

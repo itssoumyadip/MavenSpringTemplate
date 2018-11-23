@@ -5,14 +5,13 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	<bean id="user1" class="das.soumyadipd.beans.User">
-		<property name="userName" value="soumyadip" />
-		<property name="password" value="pswd1" />
-	</bean>
-
-	<bean id="user2" class="das.soumyadipd.beans.User">
-		<property name="userName" value="aparajita" />
-		<property name="password" value="pswd2" />
+	<bean id="contextBasedLogInHelper" class="das.soumyadipd.system.login.helper.ContextBasedLogInHelper">
+		<property name="userMap">
+			<map>
+				<entry key="soumyadip" value="pswd1" />
+				<entry key="aparajita" value="pswd2" />
+			</map>
+		</property>
 	</bean>
 
 </beans>

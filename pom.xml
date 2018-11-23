@@ -15,6 +15,8 @@
 		<junit.version>4.11</junit.version>
 		<log4j.version>1.2.17</log4j.version>
 		<jcl-over-slf4j.version>1.7.5</jcl-over-slf4j.version>
+		<apache.commons.version>3.8.1</apache.commons.version>
+		<jackson.version>2.8.5</jackson.version>
 	</properties>
 
 	<dependencies>
@@ -54,8 +56,15 @@
 		<dependency>
     		<groupId>org.apache.commons</groupId>
     		<artifactId>commons-lang3</artifactId>
-    		<version>3.8.1</version>
+    		<version>${apache.commons.version}</version>
 		</dependency>
+		
+		<!-- Jackson for Json -->
+		<dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
 
 		<!-- Spring -->
 		<dependency>

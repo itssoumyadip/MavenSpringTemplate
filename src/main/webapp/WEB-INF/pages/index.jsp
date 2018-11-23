@@ -8,10 +8,10 @@
 	</head>
 	<body>
 		<h1>Dear Guest, Please choose action</h1>
-		<form action="login" method="get">
+		<form action="${pageContext.request.contextPath}/web/auth/login" method="get">
 			<input type="submit" value="Log In">
 		</form>
-		<form action="showTime" method="get">
+		<form action="${pageContext.request.contextPath}/web/time/showTime" method="get">
 			<input type="submit" value="Show Time">
 		</form>
 	</body>
